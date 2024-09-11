@@ -1,0 +1,201 @@
+{
+    "log": {
+        "level": "info"
+    },
+    "dns": {
+        "servers": [
+            "114.114.114.114",
+            "8.8.8.8"
+        ],
+    },
+    "outbounds": [
+        {
+            "protocol": "failover",
+            "settings": {
+                "actors": [
+                    "trojan_out"
+                ]
+            },
+            "tag": "failover_out"
+        },
+      {
+            "protocol": "chain",
+            "settings": {
+                "actors": [
+                    "trojan_tls",
+                    "trojan"
+                ]
+            },
+            "tag": "trojan_out"
+        },
+        {
+            "protocol": "tls",
+            "tag": "trojan_tls"
+        },
+        {
+            "protocol": "trojan",
+            "settings": {
+                "address": "server.com",
+                "password": "112358",
+                "port": 443
+            },
+            "tag": "trojan"
+        },
+        
+        {
+            "protocol": "direct",
+            "tag": "direct_out"
+        },
+        {
+            "protocol": "drop",
+            "tag": "drop_out"
+        }
+    ],
+    "rules": [
+        {
+            "ip": [
+                "8.8.8.8",
+                "8.8.4.4"
+            ],
+            "target": "failover_out"
+        },
+        {
+            "domainSuffix": [
+                "ktm.com",
+                "huggingface.co",
+                "Nissan.com",
+                "gmail.com",
+                "linkedin.com",
+                "spotify.com",
+                "perplexity.ai",
+                
+                "findyoutube.com",
+                "findyoutube.net",
+                
+                "youtu.be",
+                "youtube-nocookie.com",
+                "youtube.com",
+                "youtubecn.com",
+                "youtubeeducation.com",
+                "youtubegaming.com",
+                "yt.be",
+                "ytht.net",
+                "ytimg.com",
+                "ytn.co.kr",
+                
+                "about.google",
+                "agoogleaday.com",
+                "ai.google",
+                "blog.google",
+                "com.google",
+                "crisisresponse.google",
+                "design.google",
+                "dns.google",
+                "domains.google",
+                "environment.google",
+                "google.ae",
+                "google.am",
+                "google.as",
+                "google.at",
+                "google.az",
+                "google.ba",
+                "google.be",
+                "google.bg",
+                "google.ca",
+                "google.calstate.edu",
+                "google.cd",
+                "google.ci",
+                "google.co.id",
+                "google.co.jp",
+                "google.co.kr",
+                "google.co.ma",
+                "google.co.uk",
+                "google.com",
+                "google.de",
+                "google.dev",
+                "google.dj",
+                "google.dk",
+                "google.es",
+                "google.fi",
+                "google.fm",
+                "google.fr",
+                "google.gg",
+                "google.gl",
+                "google.gr",
+                "google.ie",
+                "google.is",
+                "google.it",
+                "google.jo",
+                "google.kz",
+                "google.lv",
+                "google.mn",
+                "google.ms",
+                "google.nl",
+                "google.no",
+                "google.nu",
+                "google.ro",
+                "google.ru",
+                "google.rw",
+                "google.sc",
+                "google.sh",
+                "google.sk",
+                "google.sm",
+                "google.sn",
+                "google.tk",
+                "google.tm",
+                "google.to",
+                "google.tt",
+                "google.vu",
+                "google.ws",
+                "googleapis.cn",
+                "googleapis.com",
+                "googleapps.com",
+                "googlearth.com",
+                "googleartproject.com",
+                "googleblog.com",
+                "googlebot.com",
+                "googlechinawebmaster.com",
+                "googlecode.com",
+                "googlecommerce.com",
+                "googledomains.com",
+                "googledrive.com",
+                "googleearth.com",
+                "googlegroups.com",
+                "googlehosted.com",
+                "googleideas.com",
+                "googleinsidesearch.com",
+                "googlelabs.com",
+                "googlemail.com",
+                "googlemashups.com",
+                "googlepagecreator.com",
+                "googleplay.com",
+                "googleplus.com",
+                "googlescholar.com",
+                "googlesile.com",
+                "googlesource.com",
+                "googleusercontent.com",
+                "googlevideo.com",
+                "googleweblight.com",
+                "googlezip.net",
+                "groups.google.cn",
+                "grow.google",
+                "igoogle.com",
+                "lers.google",
+                "nic.google",
+                "opensource.google",
+                "pride.google",
+                "registry.google",
+                "safety.google",
+                "stories.google",
+                "sustainability.google",
+                "thinkwithgoogle.com",
+                "withgoogle.com",
+                "missav.com",
+                "pornhub.com",
+                "wikipedia.org",
+                "google.com"
+            ],
+            "target": "failover_out"
+        },
+    ]
+}
